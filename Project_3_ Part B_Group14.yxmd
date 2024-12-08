@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IMDb_TopVoted.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="movie_id" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_rank" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_title" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_runtime" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_year" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_rating" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+            <Field name="movie_votes" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\IMDb_TopVoted.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\TestLab\Desktop\Project 03\Movies.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Movies.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="movie_id" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\Movies.csv" type="V_String" />
+            <Field name="originalTitle" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\Movies.csv" type="V_String" />
+            <Field name="description" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\Movies.csv" type="V_String" />
+            <Field name="ratingCategory" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\Movies.csv" type="V_String" />
+            <Field name="genres" size="254" source="File: C:\Users\TestLab\Desktop\Project 03\Movies.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="258" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="movie_id" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="movie_id" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_movie_rank" selected="True" input="Left_" />
+                <SelectField field="Left_movie_title" selected="True" input="Left_" />
+                <SelectField field="Left_movie_runtime" selected="True" input="Left_" />
+                <SelectField field="Left_movie_year" selected="True" input="Left_" />
+                <SelectField field="Left_movie_rating" selected="True" input="Left_" />
+                <SelectField field="Left_movie_votes" selected="True" input="Left_" />
+                <SelectField field="Right_movie_id" selected="True" rename="Right_movie_id" input="Right_" />
+                <SelectField field="Right_originalTitle" selected="True" input="Right_" />
+                <SelectField field="Right_description" selected="True" input="Right_" />
+                <SelectField field="Right_ratingCategory" selected="True" input="Right_" />
+                <SelectField field="Right_genres" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="690" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>genres</Field>
+          <ErrorHandling>Warn</ErrorHandling>
+          <RootName>genre</RootName>
+          <Delimeters value="," />
+          <NumFields value="3" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="810" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Right_movie_id" selected="True" rename="movie_id" />
+            <SelectField field="movie_rank" selected="True" rename="rank" type="Int64" size="8" />
+            <SelectField field="movie_title" selected="True" rename="title" />
+            <SelectField field="originalTitle" selected="True" />
+            <SelectField field="description" selected="True" />
+            <SelectField field="movie_year" selected="True" rename="year" type="Int64" size="8" />
+            <SelectField field="movie_votes" selected="True" rename="votes" type="Int64" size="8" />
+            <SelectField field="movie_rating" selected="True" rename="rating" />
+            <SelectField field="movie_runtime" selected="True" rename="runtimeminutes" />
+            <SelectField field="ratingCategory" selected="True" />
+            <SelectField field="genres" selected="False" />
+            <SelectField field="genre1" selected="True" />
+            <SelectField field="genre2" selected="True" />
+            <SelectField field="genre3" selected="True" />
+            <SelectField field="movie_id" selected="False" />
+            <SelectField field="rank" selected="False" />
+            <SelectField field="title" selected="False" />
+            <SelectField field="year" selected="False" />
+            <SelectField field="votes" selected="False" />
+            <SelectField field="rating" selected="False" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="930" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\Users\TestLab\Desktop\Project 03\Project_3_Part_B_Group14.csv</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Project_3_Part_B_Group14.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="114" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\TestLab\AppData\Local\Temp\Engine_7888_203ef98dd6604e46a7d2d9d92dd5987c_\Engine_7888_0a7dabb451e21047b77640c253af189d~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="126" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\TestLab\AppData\Local\Temp\Engine_7888_203ef98dd6604e46a7d2d9d92dd5987c_\Engine_7888_324ca723d8b14b41819b12d387f8a5ec~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([movie_runtime],&quot;R&quot;,&quot;&quot;)&#xA;&#xA;&#xA;" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;PG-13&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;P&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;TV-14&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="ToNumber(REGEX_Replace([movie_votes], &quot;,&quot;, &quot;&quot;))" field="movie_votes" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;G&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;TV-MA&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;Not ated&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;TV-&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;Unrated&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;13+&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;Approved&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="Replace([movie_runtime],&quot;16+&quot;,&quot;&quot;)" field="movie_runtime" size="254" type="V_String" />
+            <FormulaField expression="TrimLeft([movie_title], &quot;.&quot;)" field="movie_title" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>movie_runtime = Replace([movie_runtime],"R","")
+
+
+
+movie_runtime = Replace([movi...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="450" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="movie_rank" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>movie_rank - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="558" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="(ToNumber(Trim(Left([movie_runtime], FindString([movie_runtime], 'h')))) * 60) + ToNumber(Trim(Substring([movie_runtime], FindString([movie_runtime], 'h')+1, FindString([movie_runtime], 'm')-FindString([movie_runtime], 'h')-1)))" field="movie_runtime" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>movie_runtime = (ToNumber(Trim(Left([movie_runtime], FindString([movie_runtime],...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings>
+        <Position x="354" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"movie_rank","movie_title","movie_runtime","movie_year","movie_rating","movie_votes","Right_movie_id","originalTitle","description","ratingCategory","genres"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="6" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Join" />
+      <Destination ToolID="23" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output26" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Project_3_ Part B_Group14</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5d9c5757-8c6c-4e61-b114-2e3c90d1ec72" />
+      <Telemetry>
+        <PreviousWorkflowId value="682035c4-0845-4ff2-b934-b52d7b08f768" />
+        <OriginWorkflowId value="8dbecbc5-e79e-4cf3-89d6-af0e12287474" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
